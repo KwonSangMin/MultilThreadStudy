@@ -2,7 +2,7 @@
 본 project는 https://popcorntree.tistory.com/15 블로그를 참조하여 진행하였습니다.
 
 만약 아래의 코드를 실행한다면
-'''
+"""
 #define MAX 1000000
 int a = 0;
 int b = 0;
@@ -42,8 +42,7 @@ int main()
     }
 }
 
-
-'''
+"""
 
 <img width="80%" src="https://user-images.githubusercontent.com/38064756/114533768-38a93d00-9c89-11eb-86f9-5a1ac526339b.jpg"/>
 위와 같은 결과값을 얻을 수 있습니다.
