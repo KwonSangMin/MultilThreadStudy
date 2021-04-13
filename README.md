@@ -70,11 +70,16 @@ int main()
     atomic<int> c = 1000;
     Thread A func(){
     b=c;
-    c=a
-    }
-    Thread B func(){
+    c=a;
     a=c;
     }
     </code>
     </pre>
 위와 같은 코드에서 순차적으로 명령어를 실행하도록 보장해줍니다.
+메모리 접근 매크로 :
+.operation(memory_order_relaxed) : 메모리 접근 순서를 따로 케어하지 않습니다. cpu의 성능 향상을 고려하여 임의로 순서로 메모리를 접근합니다.
+.operation(memory_order_release) : 이 명령어 실행 시 이 명령어보다 위에 선언 모든 메모리 명령어들을 처리하고 다음 명령어를 실행합니다. 따라서, 아래의 명령어들은 위의 명령어들의 결과를 참조할수 있습니다.
+.operation(memory_order_acquire) : 이 명령어가 실행완료 되기 전까지 아래 명령어는 실행되지 않습니다. 위에 명령어의 순서는 관여하지 않습니다.
+.operation(memory_order_seq_cst) : 이 명령어는 모든 쓰레드가 동일한 메모리 값을 참조하도록 제어합니다
+
+memory_order 관련 내용은 https://modoocode.com/271 게시글을 참조하였습니다.
