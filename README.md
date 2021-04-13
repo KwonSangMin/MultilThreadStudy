@@ -65,15 +65,15 @@ int main()
 또한 이외에도, Atomic 자료형은 기본적으로 memory_order_seq_cst 매크로를 사용하여 동작하여 
     <pre>
     <code>
-    int *a = 10;
-    int *b = 100;
-    int *c = 1000;
+    atomic<int> a = 10;
+    atomic<int> b = 100;
+    atomic<int> c = 1000;
     Thread A func(){
-    *b=*c;
-    *c=*a
+    b=c;
+    c=a
     }
     Thread B func(){
-    *a=*c;
+    a=c;
     }
     </code>
     </pre>
