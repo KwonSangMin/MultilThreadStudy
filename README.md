@@ -11,8 +11,8 @@
 using namespace std;
 
 #define MAX 1000000
-int a = 0;
-int b = 0;
+volatile int a = 0;
+volatile int b = 0;
 int arr1[MAX];
 int arr2[MAX];
 void func1()
