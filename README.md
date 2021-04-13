@@ -4,11 +4,6 @@
 만약 아래의 코드를 실행한다면
 <pre>
 <code>
-#define MAX 1000000
-int a = 0;
-int b = 0;
-int arr1[MAX];
-int arr2[MAX];
 void func1()
 {
     for (int i = 0; i < MAX; i++)
@@ -31,6 +26,16 @@ int main()
     thread A(func1), B(func2);
     A.join();
     B.join();
+    for (int i = 0; i < MAX-1; i++)
+    {
+        int Ax = i;
+        int Ay = arr1[i];
+        int By = i;
+        int Bx = arr2[i];
+        if(arr2[Ay]!=Ax&&arr1[Ax]!=arr1[Ax+1])
+            cout << "x == "<<i<<" y == "<<arr1[i] << ", y == " << Ay << " x == " << arr2[Ay] << endl;
+        
+    }
 }
 
 </code>
