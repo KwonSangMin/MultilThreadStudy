@@ -33,7 +33,7 @@ int main()
         int By = i;
         int Bx = arr2[i];
         if(arr2[Ay]!=Ax&&arr1[Ax]!=arr1[Ax+1])
-            cout << "x == "<<i<<" y == "<<arr1[i] << ", y == " << Ay << " x == " << arr2[Ay] << endl;
+            cout << x == <<i<< y == <<arr1[i] << , y ==  << Ay <<  x ==  << arr2[Ay] << endl;
         
     }
 }
