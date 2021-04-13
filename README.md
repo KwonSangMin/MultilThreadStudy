@@ -31,16 +31,6 @@ int main()
     thread A(func1), B(func2);
     A.join();
     B.join();
-    for (int i = 0; i < MAX-1; i++)
-    {
-        int Ax = i;
-        int Ay = arr1[i];
-        int By = i;
-        int Bx = arr2[i];
-        if(arr2[Ay]!=Ax&&arr1[Ax]!=arr1[Ax+1])
-            cout << "x == "<<i<<" y == "<<arr1[i] << ", y == " << Ay << " x == " << arr2[Ay] << endl;
-        
-    }
 }
 
 </code>
