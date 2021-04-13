@@ -2,6 +2,8 @@
 본 project는 https://popcorntree.tistory.com/15 블로그를 참조하여 진행하였습니다.
 
 만약 아래의 코드를 실행한다면
+<pre>
+<code>
 #define MAX 1000000
 int a = 0;
 int b = 0;
@@ -40,6 +42,9 @@ int main()
         
     }
 }
+</code>
+</pre>
+
 <img width="80%" src="https://user-images.githubusercontent.com/38064756/114533768-38a93d00-9c89-11eb-86f9-5a1ac526339b.jpg"/>
 위와 같은 결과값을 얻을 수 있습니다.
 위의 결과값에서 Thread A가 func1을 실행하면서 x=849일때 y의 값이 891이라는 것을 확인할 수 있습니다. 그리고 Thread B가 func2를 실행하면서 y=891일 때는 x가 842라는 값으로 참조하는 것을 확인할수 있습니다.
