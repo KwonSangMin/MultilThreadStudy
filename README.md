@@ -61,3 +61,20 @@ int main()
 <img width="80%" src="https://user-images.githubusercontent.com/38064756/114533695-229b7c80-9c89-11eb-831f-1297cc638e43.png"/>
 
 이를 해결하기위해 a와 b를 atomic<int>로 바꿔준다면 ( 각 변수들의 값을 갱신할 때 Atomic하게 실행시켜준다면 ) 메모리 일관성을 유지할 수 있습니다.
+그 이유는 Atomic 자료형은 메모리를 읽고 갱신하고 다시 해당 메모리에 값을 쓰는 작업을 1개의 명령어로 처리해주도록 합니다. 다시말해서, 메모리를 읽고 쓰는 작업을 하는 동안 다른 쓰레드로 문맥교환이 안된다는 뜻입니다. 이를 통해서, 두 쓰레드가 항상 동일한 값을 참조하도록 해줍니다.
+또한 이외에도, Atomic 자료형은 기본적으로 memory_order_seq_cst 매크로를 사용하여 동작하여 
+    <pre>
+    <code>
+    int *a = 10;
+    int *b = 100;
+    int *c = 1000;
+    Thread A func(){
+    *b=*c;
+    *c=*a
+    }
+    Thread B func(){
+    *a=*c;
+    }
+    </code>
+    </pre>
+위와 같은 코드에서 순차적으로 명령어를 실행하도록 보장해줍니다.
