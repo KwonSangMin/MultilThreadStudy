@@ -40,10 +40,11 @@ int main()
         
     }
 }
-<img width="80%" src="https://user-images.githubusercontent.com/38064756/114533695-229b7c80-9c89-11eb-831f-1297cc638e43.png"/>
+<img width="80%" src="https://user-images.githubusercontent.com/38064756/114533768-38a93d00-9c89-11eb-86f9-5a1ac526339b.jpg"/>
 위와 같은 결과값을 얻을 수 있습니다.
 위의 결과값에서 Thread A가 func1을 실행하면서 x=849일때 y의 값이 891이라는 것을 확인할 수 있습니다. 그리고 Thread B가 func2를 실행하면서 y=891일 때는 x가 842라는 값으로 참조하는 것을 확인할수 있습니다.
 이어서, 다음 줄을 확인해보면 x=861일 때 y=894입니다. 그리고, y=894일 때는 x=842입니다.
 각각의 결과가 의미하는바는 ThreadB에서는 y가 897의 값을 가질 때까지 x는 값이 업데이트되지 않습니다. 하지만, Thread A에서는 y가 897이 되기전에 x를 849~865까지 계속 업데이트 하는 것을 볼 수 있습니다. 이를 통해, 아래의 이미지에서 보이는 것처럼 메모리 일관성이 깨졋다는 것을 확인할 수 있습니다.
 
-<img width="80%" src="https://user-images.githubusercontent.com/38064756/114533768-38a93d00-9c89-11eb-86f9-5a1ac526339b.jpg"/>
+
+<img width="80%" src="https://user-images.githubusercontent.com/38064756/114533695-229b7c80-9c89-11eb-831f-1297cc638e43.png"/>
