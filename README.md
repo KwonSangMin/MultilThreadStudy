@@ -59,3 +59,5 @@ int main()
 
 
 <img width="80%" src="https://user-images.githubusercontent.com/38064756/114533695-229b7c80-9c89-11eb-831f-1297cc638e43.png"/>
+
+이를 해결하기위해 a와 b를 atomic<int>로 바꿔준다면 ( 각 변수들의 값을 갱신할 때 Atomic하게 실행시켜준다면 ) 메모리 일관성을 유지할 수 있습니다.
