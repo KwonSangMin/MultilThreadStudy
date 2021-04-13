@@ -4,6 +4,17 @@
 만약 아래의 코드를 실행한다면
 <pre>
 <code>
+#include <iostream>
+#include <thread>
+#include <atomic>
+
+using namespace std;
+
+#define MAX 1000000
+int a = 0;
+int b = 0;
+int arr1[MAX];
+int arr2[MAX];
 void func1()
 {
     for (int i = 0; i < MAX; i++)
@@ -32,9 +43,6 @@ int main()
         int Ay = arr1[i];
         int By = i;
         int Bx = arr2[i];
-        if(arr2[Ay]!=Ax&&arr1[Ax]!=arr1[Ax+1])
-            cout << x == <<i<< y == <<arr1[i] << , y ==  << Ay <<  x ==  << arr2[Ay] << endl;
-        
     }
 }
 
