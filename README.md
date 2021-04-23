@@ -87,4 +87,8 @@ int main()
 ** Single Thread의 경우에도 CPU의 최적화로 인해서 메모리 접근 명령어가 순서대로 실행되지 않을 수 있지만 CPU 파이프라인에서 특정 변수에 대한 값을 확인하는 경우 해당 명령어 실행과정에서 파이프라인에 해당 변수에 대한 작업이 있는지 확인하고 있다면 forwarding을 통해서 해당 값을 불러옵니다. 만약 해당 변수에 대한 작업이 파이프라인에 없다면 메모리를 참조해서 값을 불러오게 됩니다.
 이를 통해서 Single Thread에서는 명시적으로 메모리 오더를 조절해주지  프로그래머가 의도한대로 명령어가 실행되도록 합니다.
 
+** CPU의 최적화는 비순차적 명령어 처리 매커니즘을 통해 이루어집니다. 컴퓨터 CPU는 성능 향상을 위해서 파이프라이닝 기법을 사용하고 있습니다.
+<img width="80%" src=https://www.google.com/url?sa=i&url=https%3A%2F%2Fko.wikipedia.org%2Fwiki%2F%25EB%25AA%2585%25EB%25A0%25B9%25EC%2596%25B4_%25ED%258C%258C%25EC%259D%25B4%25ED%2594%2584%25EB%259D%25BC%25EC%259D%25B8&psig=AOvVaw3Nuw7hESZeWk4nIIdA7EBD&ust=1619242112093000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKj8nonRk_ACFQAAAAAdAAAAABAD/>
+
+
 memory_order 관련 내용은 https://modoocode.com/271 게시글을 참조하였습니다.
