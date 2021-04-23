@@ -82,6 +82,8 @@ int main()
 .operation(memory_order_acquire) : 이 명령어가 실행완료 되기 전까지 아래 명령어는 실행되지 않습니다. 위에 명령어의 순서는 관여하지 않습니다.
 .operation(memory_order_seq_cst) : 이 명령어는 모든 쓰레드가 동일한 메모리 값을 참조하도록 제어합니다
 
+** Memory_order_seq_cst와 memory_order_acquire, release 동기화의 차이점은 Memory_order_acquire 동기화의 경우 다른 CPU코어에서의 값은 케어해주지 않습니다. 즉, Core A에서 해당 동기화를 통해 메모리 작업 순서를 동기화해주어도 Core B에서는 해당 결과 값들이 정상적으로 반영되지 않을 수 있습니다. 하지만, Memory_order_seq_cst는 모든 Core에서 해당 결과 값을 참조할 수 있도록 해줍니다. 따라서, Memory_order_seq_cst는 다른 메모리 동기화 매크로보다 느립니다.
+
 ** Single Thread의 경우에도 CPU의 최적화로 인해서 메모리 접근 명령어가 순서대로 실행되지 않을 수 있지만 CPU 파이프라인에서 특정 변수에 대한 값을 확인하는 경우 해당 명령어 실행과정에서 파이프라인에 해당 변수에 대한 작업이 있는지 확인하고 있다면 forwarding을 통해서 해당 값을 불러옵니다. 만약 해당 변수에 대한 작업이 파이프라인에 없다면 메모리를 참조해서 값을 불러오게 됩니다.
 이를 통해서 Single Thread에서는 명시적으로 메모리 오더를 조절해주지  프로그래머가 의도한대로 명령어가 실행되도록 합니다.
 
